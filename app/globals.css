@@ -3,8 +3,21 @@
 @tailwind utilities;
 
 html {
-    background: rgb(15 23 42);
-    color: rgb(156 163 175);
+    background: #0F172A;
+    color: #9CA3AF;
 }
 
+.bg-gradient01 {
+    background: linear-gradient(transparent, #7C72FF 30%);
+    height: 72%;
+}
 
+.bg-gradient02 {
+    background: rgb(20,31,56);
+background: linear-gradient(327deg, rgba(20,31,56,1) 31%, rgba(3,47,58,0) 79%);
+}
+
+.bg-gradient03 {
+    background: linear-gradient(transparent, #3FB950 50%);
+    height: 100%;
+}
