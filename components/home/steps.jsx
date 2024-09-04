@@ -30,15 +30,15 @@ export default function Steps() {
 
             <div className="flex mt-4 relative items-center">
                 <div className="bg-[#121c32] p-6 rounded-xl relative z-20 shadow-2xl w-[48%]">
-                    <FaSitemap className="text-4xl mb-2" />
-                    <h1 className="text-[#fff] font-bold mb-2">Get Your Personalized Roadmap:</h1>
-                    <p>Receive a detailed plan aligned with your goals.</p>
-                </div>
-                <div className="bg-[#203e90] h-[6px] w-[4%]"></div>
-                <div className="bg-[#121c32] p-6 rounded-xl relative z-20 shadow-2xl w-[48%]">
                     <MdSupportAgent className="text-4xl mb-2" />
                     <h1 className="text-[#fff] font-bold mb-2">Continuous Guidance & Support:</h1>
                     <p>Stay on track with regular updates and feedback.</p>
+                </div>
+                <div className="bg-[#203e90] h-[6px] w-[4%]"></div>
+                <div className="bg-[#121c32] p-6 rounded-xl relative z-20 shadow-2xl w-[48%]">
+                    <FaSitemap className="text-4xl mb-2" />
+                    <h1 className="text-[#fff] font-bold mb-2">Get Your Personalized Roadmap:</h1>
+                    <p>Receive a detailed plan aligned with your goals.</p>
                 </div>
 
                 <div className="w-[10rem] h-[10rem] border-l-[#203e90] border-y-[#203e90] border-r-0 absolute left-[-5rem] bottom-[-5rem] border-[6px] rounded-[50%] "></div>
