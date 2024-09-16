@@ -14,7 +14,7 @@ import Why from "@/components/home/why"
 import { GiAchievement } from "react-icons/gi";
 import { FaLockOpen } from "react-icons/fa";
 
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+// import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 
 const Features = [
@@ -55,22 +55,22 @@ export default function Home() {
   return (
     <div>
       <Topbar />
-      <main className="p-24  overflow-hidden">
+      <main className="p-12 lg:p-24 overflow-hidden">
 
-        <div className='flex gap-12 w-5/6 mx-auto py-20 relative'>
+        <div className='flex gap-5 lg:gap-12 w-80 lg:w-5/6 mx-auto py-2 md:py-10 lg:py-20 relative'>
           <div className='flex flex-col items-center'>
             <BiCertification className='text-3xl font-normal' />
             <div className='bg-gradient01 w-[3px]'></div>
           </div>
           <div className=''>
-            <div className="relative z-20 w-3/4">
-              <h1 className='text-5xl font-extrabold text-[#fff]'>Shape Your Future with Personalized Career Guidance</h1>
-              <h2 className='text-2xl my-10'>Empower your career journey with AI-driven insights and tailored roadmaps.</h2>
-              <Link href='/signup' className='text-[#fff] inline-block text-xl rounded-sm bg-[#7C72FF] py-1 px-4'>
+            <div className="relative z-20 w-full lg:w-3/4">
+              <h1 className='text-xl md:text-4xl lg:text-5xl font-extrabold text-[#fff]'>Shape Your Future with Personalized Career Guidance</h1>
+              <h2 className='text-sm md:text-2xl lg:text-2xl my-4 lg:my-10'>Empower your career journey with AI-driven insights and tailored roadmaps.</h2>
+              <Link href='/signup' className='text-[#fff] inline-block text-sm lg:text-xl rounded-lg bg-[#7C72FF] py-1 px-4'>
                 Get Started
               </Link>
             </div>
-            <div className="absolute bottom-[-10rem] right-[-10rem] z-10">
+            <div className="hidden lg:flex lg:absolute lg:bottom-[-10rem] lg:right-[-10rem] z-10">
               <dotlottie-player
                 src="https://lottie.host/4a02b755-0f19-4fac-b1ea-d2f539ebb8e5/brzME7M0WN.json"
                 background="transparent"
@@ -85,8 +85,8 @@ export default function Home() {
 
 
 
-        <div className='my-28 bg-gradient02 border-[#5a5a5a9d] py-20 px-28 border-[1px] rounded-[2rem]'>
-          <h1 className='text-xl'><span className='text-[#3FB950] font-extrabold text-4xl'>Why Eleka?</span> is your personal career coach, offering customized guidance whether you're aiming to grow in your current field or planning a complete career transition.</h1>
+        <div className='my-14 justify-center items-center md:my-16 lg:my-28 bg-gradient02 w-[440px] md:w-full border-[#5a5a5a9d] py-10 px-10 lg:py-20 lg:px-28 border-[1px] rounded-[2rem]'>
+          <h1 className='text-lg md:text-xl'><span className='text-[#3FB950] font-extrabold text-2xl md:text-4xl'>Why Eleka?</span> is your personal career coach, offering customized guidance whether you're aiming to grow in your current field or planning a complete career transition.</h1>
           <div className='flex gap-4 flex-wrap pt-20'>
             {Features.map((itm) => (
               <div className='border-[#5a5a5a9d] p-6 border-[1px] rounded-md w-[32%] h-[10rem]'>
