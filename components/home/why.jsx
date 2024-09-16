@@ -7,21 +7,21 @@ export default function Why() {
     return (
         <div className="relative my-20 ml-[-2rem]">
 
-            <div className="flex gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
 
-                <div className="bg-gradient02 p-6 rounded-xl relative z-20 w-[48%] mt-4">
+                <div className="bg-gradient02 p-6 rounded-xl relative z-20 w-[100%] lg:w-[48%] mt-4">
                     <FaRobot className="text-4xl text-[#3FB950] mb-2" />
                     <h1 className="text-[#fff] font-extrabold text-2xl mb-4">AI-Driven Insights</h1>
                     <p>Harness the power of AI to guide your career decisions.</p>
                 </div>
 
-                <div className="bg-gradient02 p-6 rounded-xl relative z-20 w-[48%] mt-4">
+                <div className="bg-gradient02 p-6 rounded-xl relative z-20 w-[100%] lg:w-[48%] mt-4">
                     <MdOutlineSettingsSuggest className="text-4xl text-[#3FB950] mb-2" />
                     <h1 className="text-[#fff] font-extrabold text-2xl mb-4">Tailored to You</h1>
                     <p>Everything we offer is personalized to your unique strengths and goals.</p>
                 </div>
 
-                <div className="bg-gradient02 p-6 rounded-xl relative z-20 w-[48%] mt-4">
+                <div className="bg-gradient02 p-6 rounded-xl relative z-20 w-[100%] lg:w-[48%] mt-4">
                     <MdSelfImprovement className="text-4xl text-[#3FB950] mb-2" />
                     <h1 className="text-[#fff] font-extrabold text-2xl mb-4">Proven Success</h1>
                     <p>Join a growing community of professionals who have achieved their career aspirations with Eleka.</p>
@@ -29,15 +29,18 @@ export default function Why() {
 
             </div>
 
-            <div className="my-20 flex items-center gap-5">
-                <h1 className='text-[#fff] text-xl rounded-sm bg-[#7C72FF] py-1 px-6'>
+            <div className="my-12 flex-col md:flex-row lg:my-20 flex items-center gap-3 lg:gap-5">
+                <div className="flex gap-2">
+                <h1 className='text-[#fff] text-sm lg:text-xl rounded-lg bg-[#7C72FF] py-2 lg:py-1  px-[8px] lg:px-6'>
                     Start Your Journey Today
                 </h1>
-                <h1 className='text-[#1b1b1b] text-xl rounded-sm bg-[#ececec] py-1 px-6'>
+                <h1 className='text-[#1b1b1b] text-sm lg:text-xl rounded-lg bg-[#ececec] py-2 lg:py-1 px-[8px] lg:px-6'>
                     Learn More
                 </h1>
 
-                <div className="flex items-center -space-x-3 ml-10">
+                </div>
+               
+                <div className="flex items-center -space-x-3 ml-4 lg:ml-10">
                     <Avatar
                         variant="circular"
                         alt="user 1"
@@ -70,13 +73,6 @@ export default function Why() {
                     />
                 </div>
             </div>
-
-            {/* <div>
-                <div className="border-[#5a5a5a47] border-[1px] border-dashed w-1/3 h-[10rem]"></div>
-                <div className="border-[#5a5a5a47] border-[1px] border-dashed w-1/3 h-[10rem]"></div>
-                <div className="border-[#5a5a5a47] border-[1px] border-dashed w-1/3 h-[10rem]"></div>
-                <div className="border-[#5a5a5a47] border-[1px] border-dashed w-1/3 h-[10rem]"></div>
-            </div> */}
         </div>
     );
 }

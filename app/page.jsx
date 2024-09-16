@@ -137,7 +137,7 @@ export default function Home() {
             </dotlottie-player>
           </div>
           <div className=''>
-            <h1 className='text-3xl lg:text-5xl font-extrabold text-[#33B3AE]'>Why Choose Eleka?</h1>
+            <h1 className='text-2xl lg:text-5xl font-extrabold text-[#33B3AE]'>Why Choose Eleka?</h1>
             <Why />
           </div>
         </div>
