@@ -85,17 +85,17 @@ export default function Home() {
 
 
 
-        <div className='my-14 justify-center items-center md:my-16 lg:my-28 bg-gradient02 w-[440px] md:w-full border-[#5a5a5a9d] py-10 px-10 lg:py-20 lg:px-28 border-[1px] rounded-[2rem]'>
-          <h1 className='text-lg md:text-xl'><span className='text-[#3FB950] font-extrabold text-2xl md:text-4xl'>Why Eleka?</span> is your personal career coach, offering customized guidance whether you're aiming to grow in your current field or planning a complete career transition.</h1>
-          <div className='flex gap-4 flex-wrap pt-20'>
+        <div className='my-12 justify-center items-center md:my-16 lg:my-28 bg-gradient02 w-[360px] md:w-full border-[#5a5a5a9d] py-7 px-5 lg:py-20 lg:px-28 border-[1px] rounded-[2rem]'>
+          <h1 className='text-sm md:text-xl'><span className='text-[#3FB950] font-extrabold text-xl md:text-4xl'>Why Eleka?</span> is your personal career coach, offering customized guidance whether you're aiming to grow in your current field or planning a complete career transition.</h1>
+          <div className='flex gap-4 flex-col lg:flex-row h-auto lg:flex-wrap pt-11 lg:pt-20'>
             {Features.map((itm) => (
-              <div className='border-[#5a5a5a9d] p-6 border-[1px] rounded-md w-[32%] h-[10rem]'>
+              <div className='border-[#5a5a5a9d] p-6 border-[1px] rounded-md w-[100%] lg:w-[32%] h-[10rem]'>
                 <h1 className='text-[#fff] text-xl font-bold mb-2'>{itm.key}</h1>
                 <p className='text-sm'>{itm.detail}</p>
               </div>
             ))}
 
-            <div className='border-[#5a5a5a9d] border-[1px] rounded-md w-[32%] mb-[-10rem] shadow-2xl'>
+            <div className='border-[#5a5a5a9d] border-[1px] rounded-md w-[100%] lg:w-[32%] mb-[-10rem] shadow-2xl'>
               <div className='bg-[#1d2b4a] p-6 rounded-s-sm h-full'>
                 <h1 className='text-[#fff] text-xl font-bold mb-2'>Eleka</h1>
                 <p className='text-sm flex items-center justify-between gap-2'>
@@ -103,7 +103,7 @@ export default function Home() {
                 </p>
                 <p className='border-[#3FB950] border-[1px] text-xs my-4 inline-block p-1 rounded-md text-[#3FB950]'>Did you know?</p>
                 <p className='text-sm text-[#fff]'>Everything we offer is personalized to your unique strengths and goals.</p>
-                <h1 className='text-[#fff] inline-block text-md my-6 rounded-sm bg-[#7C72FF] py-1 px-4'>
+                <h1 className='text-[#fff] inline-block text-md my-6 rounded-lg bg-[#7C72FF] py-1 px-4'>
                   Get Started
                 </h1>
               </div>
@@ -112,14 +112,14 @@ export default function Home() {
         </div>
 
 
-        <div className='flex gap-12 w-5/6 mx-auto mb-28 relative'>
-          <div className='flex flex-col items-center mt-[-5rem]'>
+        <div className='flex gap-4 lg:gap-12 w-full lg:w-5/6 mx-auto mb-28 relative'>
+          <div className='flex flex-col items-center mt-32 lg:mt-[-5rem]'>
             <div className='bg-gradient03 w-[3px]'></div>
             <GiAchievement className='text-6xl font-normal' />
           </div>
-          <div className='mt-20'>
-            <h1 className='text-5xl font-extrabold text-[#3FB950]'>How It Works</h1>
-            <h2 className='text-xl my-6'>Step-by-Step Process:</h2>
+          <div className='mt-32 lg:mt-20'>
+            <h1 className='text-3xl lg:text-5xl font-extrabold text-[#3FB950]'>How It Works</h1>
+            <h2 className='text-lg my-3 lg:text-xl lg:my-6'>Step-by-Step Process:</h2>
             <Steps />
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function Home() {
             </dotlottie-player>
           </div>
           <div className=''>
-            <h1 className='text-5xl font-extrabold text-[#33B3AE]'>Why Choose Eleka?</h1>
+            <h1 className='text-3xl lg:text-5xl font-extrabold text-[#33B3AE]'>Why Choose Eleka?</h1>
             <Why />
           </div>
         </div>
