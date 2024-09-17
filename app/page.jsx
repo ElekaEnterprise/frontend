@@ -144,11 +144,11 @@ export default function Home() {
 
 
 
-        <div className='w-4/6 mt-28 mx-auto'>
-          <h1 className='text-center text-4xl font-extrabold mb-10'>Join the Community</h1>
+        <div className='w-11/12 lg:w-4/6 mt-5 lg:mt-28 mx-auto'>
+          <h1 className='text-center text-2xl lg:text-4xl font-extrabold mb-10'>Join the Community</h1>
           <p className='text-center mb-20 w-2/3 mx-auto'>roadmap.sh is the 7th most starred project on GitHub and is visited by hundreds of thousands of developers every month.</p>
 
-          <div className='flex mx-auto w-4/5 justify-between'>
+          <div className='flex flex-col lg:flex-row mx-auto w-4/5 justify-between'>
             <div className='text-center'>
               <p className='text-sm'><span className='bg-[#3B82F6] rounded-sm p-1 text-[#fff]'>Rank 7th</span> out of 28M!</p>
               <h1 className='text-5xl font-extrabold mt-4'>289K</h1>
