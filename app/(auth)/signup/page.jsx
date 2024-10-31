@@ -3,17 +3,17 @@
 import { Card, Input, Checkbox, Button, Typography } from "@material-tailwind/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa6";
-import illustrator from "../../assets/illustrator.png"
+import illustrator from "../../assets/illustrator2.png"
 import Image from "next/image";
 import { MdHorizontalRule } from "react-icons/md";
    
   export default function Signup() {
     return (
       <div className="flex bg-white h-[100vh]">
-        <div className="bg-primary_400 flex flex-col gap-7 p-20 w-[50%]">
-          <h2 className="font-bold text-primary_200 text-3xl">Unite with Eleka and Shape Your Career Future!</h2>
-          <p className="text-gray_100 text-[14px]">Join Eleka for personalized guidancend resourcesto shapeyour fulfilling career.</p>
-          <Image className="w-[70%] mx-auto h-[70%]" src={illustrator} alt="sign-up illustrator" />
+        <div className="bg-primary_400 flex flex-col gap-10 p-20 w-[50%]">
+          <h2 className="font-bold text-primary_200 text-3xl">Find Clarity in Your Career with Eleka</h2>
+          <p className="text-gray_100 text-[14px]">Unclear about your career path? Eleka offers personalized, AI-driven guidance to help you set goals, plan, and build skills for success</p>
+          <Image className="w-[100%] mx-auto h-[60%]" src={illustrator} alt="sign-up illustrator" />
         </div>
        <Card color="transparent" shadow={false} className="p-20">
         <h1 className="text-primary_200 font-semibold text-3xl">Sign In</h1>
@@ -21,7 +21,7 @@ import { MdHorizontalRule } from "react-icons/md";
           Welcome to Eleka! Enter your details to create an account
         </p>
         <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-          <div className="mb-1 flex flex-col gap-8">
+          <div className="mb-1 flex flex-col gap-5">
             <div className="flex gap-3">
               <Button className="bg-primary_400 flex gap-1 p-2 text-gray-500 items-center lowercase text-[14px] font-normal"><FcGoogle className="text-lg"/>Sign Up with Google</Button>
               <Button className="bg-primary_400 flex gap-1 p-2 text-gray-500 items-center lowercase text-[14px] font-normal"><FaLinkedin className="text-blue-700 text-lg"/>Sign Up with LinkedIn</Button>
@@ -32,7 +32,7 @@ import { MdHorizontalRule } from "react-icons/md";
             <MdHorizontalRule className="text-gray-500 text-3xl" />
             </div>
             
-            <h3 className="text-primary_200 -mb-5 text-[15px]">
+            <h3 className="text-primary_200 -mb-4 text-[15px]">
               Email
             </h3>
             <Input
@@ -43,7 +43,7 @@ import { MdHorizontalRule } from "react-icons/md";
                 className: "before:content-none after:content-none",
               }}
             />
-            <h3 className="text-primary_200 -mb-5 text-[15px]">
+            <h3 className="text-primary_200 -mb-4 text-[15px]">
               Password
             </h3>
             <Input
@@ -76,12 +76,12 @@ import { MdHorizontalRule } from "react-icons/md";
           <Button className="mt-6 bg-primary_200" fullWidth>
             sign up
           </Button>
-          <Typography color="gray" className="mt-4 text-center text-[#9CA3AF] font-normal">
+          <p color="gray" className="mt-4 text-center text-[#9CA3AF] font-normal">
             Already have an account?{" "}
             <a href="/signin" className="font-medium text-primary_200">
               Sign In
             </a>
-          </Typography>
+          </p>
         </form>
       </Card>
       </div>
