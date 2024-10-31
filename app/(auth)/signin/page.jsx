@@ -13,7 +13,7 @@ import {
       <div className="flex justify-center items-center h-[100dvh]">
        <Card color="transparent" shadow={false}>
         <Typography variant="h4" color="white">
-          Sign In
+          Welcome Back!
         </Typography>
         <Typography className="mt-1 font-normal text-[#9CA3AF]">
           Nice to meet you! Enter your details to register.

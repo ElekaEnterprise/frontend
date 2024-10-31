@@ -22,6 +22,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const nestedMenuItems = [
   {
@@ -187,10 +188,10 @@ export default function Topbar() {
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-          <Button size="sm" className="bg-[#7C72FF]">Get Started</Button>
-          <Button variant="outlined" size="sm" className="text-white border-[#fff]">
+          <Link href="/signup" className="bg-[#7C72FF] p-2 font-semibold text-[14px] text-white rounded-lg">Get Started</Link>
+          <Link href="/signup" className="text-white font-semibold p-2 border rounded-lg text-[14px] px-4 border-[#fff]">
             Log In
-          </Button>
+          </Link>
         </div>
         <IconButton
           variant="text"

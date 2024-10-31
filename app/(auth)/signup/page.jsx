@@ -7,10 +7,18 @@ import {
     Button,
     Typography,
   } from "@material-tailwind/react";
+
+import illustrator from "../../assets/illustrator.png"
+import Image from "next/image";
    
   export default function Signup() {
     return (
-      <div className="flex justify-center items-center h-[100dvh]">
+      <div className="flex bg-white h-[100vh]">
+        <div className="bg-primary_400 flex flex-col gap-7 p-20 w-[50%]">
+          <h2 className="font-bold text-primary_100 text-3xl">Unite with Eleka and Shape Your Career Future!</h2>
+          <p className="text-gray_100 text-[14px]">Join Eleka for personalized guidancend resourcesto shapeyour fulfilling career.</p>
+          <Image className="w-[70%] mx-auto h-[70%]" src={illustrator} alt="sign-up illustrator" />
+        </div>
        <Card color="transparent" shadow={false}>
         <Typography variant="h4" color="white">
           Sign Up

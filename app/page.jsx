@@ -66,9 +66,6 @@ export default function Home() {
             <div className="relative z-20 w-full lg:w-3/4">
               <h1 className='text-xl md:text-4xl lg:text-5xl font-extrabold text-[#fff]'>Shape Your Future with Personalized Career Guidance</h1>
               <h2 className='text-sm md:text-2xl lg:text-2xl my-4 lg:my-10'>Empower your career journey with AI-driven insights and tailored roadmaps.</h2>
-              <Link href='/signup' className='text-[#fff] inline-block text-sm lg:text-xl rounded-lg bg-[#7C72FF] py-1 px-4'>
-                Get Started
-              </Link>
             </div>
             <div className="hidden lg:flex lg:absolute lg:bottom-[-10rem] lg:right-[-10rem] z-10">
               <dotlottie-player
