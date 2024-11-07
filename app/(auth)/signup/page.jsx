@@ -46,8 +46,8 @@ export default function Signup() {
         <form onSubmit={handleSubmit} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
           <div className="mb-1 flex flex-col gap-5">
             <div className="flex gap-3">
-              <Button className="bg-primary_400 flex gap-1 p-2 text-gray-500 items-center lowercase text-[14px] font-normal"><FcGoogle className="text-lg"/>Sign Up with Google</Button>
-              <Button className="bg-primary_400 flex gap-1 p-2 text-gray-500 items-center lowercase text-[14px] font-normal"><FaLinkedin className="text-blue-700 text-lg"/>Sign Up with LinkedIn</Button>
+              <button className="bg-primary_400 rounded-lg flex gap-1 p-2 text-gray-500 items-center lowercase text-[14px] font-normal"><FcGoogle className="text-lg"/>Sign Up with Google</button>
+              <button className="bg-primary_400 rounded-lg flex gap-1 p-2 text-gray-500 items-center lowercase text-[14px] font-normal"><FaLinkedin className="text-blue-700 text-lg"/>Sign Up with LinkedIn</button>
             </div>
             <div className="flex gap-2 justify-center items-center mt-2">
               <MdHorizontalRule className="text-gray-500 text-3xl" />
