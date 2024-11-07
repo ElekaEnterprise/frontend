@@ -45,7 +45,9 @@ import {
             />
           </div>
           <Button className="mt-6 bg-[#3FB950]" fullWidth>
+            <a href="/chat">
             sign in
+            </a>
           </Button>
         </form>
       </Card>

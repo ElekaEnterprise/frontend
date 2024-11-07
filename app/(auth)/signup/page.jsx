@@ -73,7 +73,9 @@ import {
             containerProps={{ className: "-ml-2.5" }}
           />
           <Button className="mt-6 bg-[#3FB950]" fullWidth>
+            <a href="/chat">
             sign up
+            </a>
           </Button>
           <Typography color="gray" className="mt-4 text-center text-[#9CA3AF] font-normal">
             Already have an account?{" "}
