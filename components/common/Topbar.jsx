@@ -189,7 +189,7 @@ export default function Topbar() {
         </div>
         <div className="hidden gap-2 lg:flex">
           <Link href="/signup" className="bg-[#7C72FF] p-2 font-semibold text-[14px] text-white rounded-lg">Get Started</Link>
-          <Link href="/signup" className="text-white font-semibold p-2 border rounded-lg text-[14px] px-4 border-[#fff]">
+          <Link href="/login" className="text-white font-semibold p-2 border rounded-lg text-[14px] px-4 border-[#fff]">
             Log In
           </Link>
         </div>
