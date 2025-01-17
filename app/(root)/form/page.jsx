@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { extractTextFromPdf } from "../../../utils/pdfParser";
-import { db, auth } from "../../../utils/firebaseConfig"; // Combined import
+import { db, auth } from "../../../utils/firebaseConfig";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 
 const SliderForm = () => {
@@ -16,13 +16,12 @@ const SliderForm = () => {
   const [error, setError] = useState('');
   // const router = useRouter();
 
-  // Handle file upload and extract text
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     if (file) {
       try {
         const text = await extractTextFromPdf(file);
-        setBio(text); // Assuming the text extracted is for the bio
+        setBio(text);
       } catch (err) {
         setError("Failed to extract text from the PDF. Please try a different file.");
       }
@@ -62,12 +61,10 @@ const SliderForm = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg relative">
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Progress Indicator */}
         <div className="mb-4">
           <p>Step {step} of 4</p>
         </div>
 
-        {/* Slider Step 1: File Upload */}
         <div className={`form-slide ${step === 1 ? 'active' : ''}`}>
           <h2 className="text-2xl font-semibold mb-4">Upload Resume PDF</h2>
           <input
@@ -87,7 +84,6 @@ const SliderForm = () => {
           </div>
         </div>
 
-        {/* Slider Step 2: Choose Your Path */}
         <div className={`form-slide ${step === 2 ? 'active' : ''}`}>
           <h2 className="text-2xl font-semibold mb-4">Choose Your Path</h2>
           <div className="flex space-x-4">
@@ -132,7 +128,6 @@ const SliderForm = () => {
           </div>
         </div>
 
-        {/* Slider Step 3: Your Details */}
         <div className={`form-slide ${step === 3 ? 'active' : ''}`}>
           <h2 className="text-2xl font-semibold mb-4">Your Details</h2>
           {error && <p className="text-red-500">{error}</p>}
@@ -178,7 +173,6 @@ const SliderForm = () => {
           </div>
         </div>
 
-        {/* Slider Step 4: Review and Submit */}
         <div className={`form-slide ${step === 4 ? 'active' : ''}`}>
           <h2 className="text-2xl font-semibold mb-4">Review and Submit</h2>
           <div>
