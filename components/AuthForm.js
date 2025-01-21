@@ -58,7 +58,7 @@ export default function AuthForm({ isSignUp = false }) {
   return (
     <div className='h-[100vh] flex justify-center items-center'>
     <div className="max-w-md mx-auto mt-10 p-6 bg-[#16213b] shadow-lg rounded-lg">
-      <Image src='/logo.png' height={70} width={80} alt="Eleka logo" className='mx-auto -mt-10 mb-10'/>
+      <Image src='/logo.png' height={70} width={100} alt="Eleka logo" className='mx-auto -mt-10 mb-10'/>
       <h2 className="text-2xl font-semibold mb-6 text-center">{isSignUp ? 'Sign Up' : 'Log In'}</h2>
       <p className='w-5/6 mx-auto text-center mb-12'>Hey, Enter your details to get <span>{isSignUp ? 'Sign Up' : 'Log In'}</span> to your account!</p>
       <div className="mb-4">
@@ -93,18 +93,11 @@ export default function AuthForm({ isSignUp = false }) {
       </div>
         <button
           onClick={googleSignIn}
-          className="flex justify-between items-center gap-4 mx-auto p-2 pr-4 bg-red-500 text-white rounded-md hover:bg-red-600 transition-transform transform"
+          className="flex justify-between items-center gap-4 mx-auto p-1 pr-4 bg-red-500 text-white rounded-md hover:bg-red-600 transition-transform transform"
         >
           <Image src='/google.png' height={35} width={35} alt="Eleka logo" className='rounded-md'/>
           <p>Sign in with Google</p>
         </button>
-        {/* <button
-          onClick={githubSignIn}
-          className="py-2 px-4 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-transform transform"
-        >
-          Sign in with GitHub
-        </button> */}
-      {/* </div> */}
     </div>
     </div>
   );
