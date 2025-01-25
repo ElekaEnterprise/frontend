@@ -7,6 +7,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { Stepper, Step, Button } from "@material-tailwind/react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { Radio } from "@material-tailwind/react";
+import { Textarea } from "@material-tailwind/react";
 
 const StepForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -15,8 +16,7 @@ const StepForm = () => {
     "2",
     "3",
     "4",
-    "5",
-    "6",
+    "5"
   ];
 
   const [path, setPath] = useState('');
@@ -43,7 +43,7 @@ const StepForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!path || !bio || !workExperience || !skills || !education) {
+    if (!bio || !workExperience || !skills || !education) {
       setError('Please fill in all fields.');
       return;
     }
@@ -55,7 +55,7 @@ const StepForm = () => {
         return;
       }
       await addDoc(collection(db, 'user', userId, 'form'), {
-        path,
+        // path,
         bio,
         workExperience,
         skills,
@@ -72,7 +72,7 @@ const StepForm = () => {
   const handlePrev = () => setCurrentStep((cur) => Math.max(cur - 1, 0));
 
   return (
-    <div className="w-4/6 mx-auto bg-[#16213b] h-[100vh] shadow-md rounded-lg">
+    <div className="w-4/6 mx-auto bg-[#16213b] min-h-[100vh] flex justify-center items-center shadow-md rounded-lg">
       <div className='fixed left-0 top-0 w-[100%]'>
         <div className='bg-steps pb-16 pt-10 px-10 w-4/6 mx-auto'>
           <Stepper activeStep={currentStep} className="mb-8" lineClassName="bg-[#7C72FF]" activeLineClassName="bg-[#3FB950]">
@@ -87,7 +87,7 @@ const StepForm = () => {
       </div>
       <form onSubmit={handleSubmit} className=' flex items-center justify-center h-full'>
         {currentStep === 0 && (
-          <div className="flex flex-col items-center justify-center w-4/6 mx-auto bg-[#7C72FF] rounded-2xl">
+          <div className="flex flex-col items-center justify-center w-[50rem] mx-auto bg-[#7C72FF] rounded-2xl">
             <label
               htmlFor="dropzone-file"
               className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-[#7C72FF] rounded-lg cursor-pointer bg-[#1c2a49] shadow-xl dark:bg-gray-700 hover:bg-[#16213b] dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
@@ -129,81 +129,60 @@ const StepForm = () => {
         )}
         {currentStep === 1 && (
           <div>
-            <h2 className="text-2xl font-semibold">Choose Your Path</h2>
-            <div className="flex space-x-4">
-              <label className="flex items-center">
-                <Radio
-                  type="radio"
-                  name="path"
-                  value="Career Guidance"
-                  checked={path === 'Career Guidance'}
-                  onChange={() => setPath('Career Guidance')}
-                />
-                <span className="ml-2">Career Guidance</span>
-              </label>
-              <label className="flex items-center">
-                <Radio
-                  type="radio"
-                  name="path"
-                  value="Transition Planning"
-                  checked={path === 'Transition Planning'}
-                  onChange={() => setPath('Transition Planning')}
-                />
-                <span className="ml-2">Transition Planning</span>
-              </label>
-            </div>
+            <h2 className="text-2xl font-semibold mb-10">Tell Us About Your Work Experience</h2>
+            <Textarea
+              color="green"
+              variant="Work Experience"
+              label="Work Experience"
+              value={workExperience}
+              onChange={(e) => setWorkExperience(e.target.value)}
+              className="form-textarea text-white"
+            />
           </div>
         )}
         {currentStep === 2 && (
           <div>
-            <h2 className="text-2xl font-semibold">Tell Us About Your Work Experience</h2>
-            <textarea
-              placeholder="Work Experience"
-              value={workExperience}
-              onChange={(e) => setWorkExperience(e.target.value)}
-              className="form-textarea"
+            <h2 className="text-2xl font-semibold mb-10">List Your Skills</h2>
+            <Textarea
+              color="green"
+              variant="Skills"
+              label="Skills"
+              value={skills}
+              onChange={(e) => setSkills(e.target.value)}
+              className="form-textarea text-white w-96"
             />
           </div>
         )}
         {currentStep === 3 && (
           <div>
-            <h2 className="text-2xl font-semibold">List Your Skills</h2>
-            <textarea
-              placeholder="Skills"
-              value={skills}
-              onChange={(e) => setSkills(e.target.value)}
-              className="form-textarea"
+            <h2 className="text-2xl font-semibold mb-10">Education Information</h2>
+            <Textarea
+              color="green"
+              variant="Education"
+              label="Education"
+              value={education}
+              onChange={(e) => setEducation(e.target.value)}
+              className="form-textarea text-white w-96"
             />
           </div>
         )}
         {currentStep === 4 && (
-          <div>
-            <h2 className="text-2xl font-semibold">Education Information</h2>
-            <textarea
-              placeholder="Education"
-              value={education}
-              onChange={(e) => setEducation(e.target.value)}
-              className="form-textarea"
-            />
-          </div>
-        )}
-        {currentStep === 5 && (
-          <div>
-            <h2 className="text-xl font-semibold">Preview</h2>
-            <p><strong>Path:</strong> {path}</p>
-            <p><strong>Bio:</strong> {bio}</p>
-            <p><strong>Work Experience:</strong> {workExperience}</p>
-            <p><strong>Skills:</strong> {skills}</p>
-            <p><strong>Education:</strong> {education}</p>
-            <button type="submit" className="submit-button">Submit</button>
+          <div className='px-20 py-40'>
+            <h2 className="text-2xl font-semibold mb-10">Preview</h2>
+            {/* <p><strong>Path:</strong> {path}</p> */}
+            <p className='mb-10'><strong className='text-xl'>Bio:</strong> {bio}</p>
+            <p className='mb-10'><strong className='text-xl'>Work Experience:</strong> {workExperience}</p>
+            <p className='mb-10'><strong className='text-xl'>Skills:</strong> {skills}</p>
+            <p className='mb-10'><strong  className='text-xl'>Education:</strong> {education}</p>
+            <Button type="submit" className="submit-button bg-[#3FB950]">Submit</Button>
           </div>
         )}
         <div className="flex justify-between mt-4 fixed w-4/6 mx-auto px-20 bottom-0 bg-steps-bottom pb-10 pt-16">
           <Button onClick={handlePrev} disabled={currentStep === 0} className='bg-[#fff0] border flex items-center border-[#7C72FF] gap-4'>
             <FaArrowLeftLong /> <p>Previous</p>
           </Button>
-          <Button onClick={handleNext} disabled={currentStep === steps.length - 1} className='flex items-center gap-4 bg-[#fff0] border-[#7C72FF] border'>
-           <p>Next</p> <FaArrowRightLong />
+          <Button onClick={handleNext} className={currentStep === steps.length - 1 ? 'bg-[#3FB950] flex items-center gap-4' : 'flex items-center gap-4 bg-[#fff0] border-[#7C72FF] border'}>
+            <p>Next</p> <FaArrowRightLong />
           </Button>
         </div>
         {error && <p className="text-red-500">{error}</p>}

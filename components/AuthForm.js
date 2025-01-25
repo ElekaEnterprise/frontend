@@ -38,7 +38,7 @@ export default function AuthForm({ isSignUp = false }) {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log('Google Sign-In successful:', result.user);
-      router.push('/form'); 
+      router.push('/path'); 
     } catch (error) {
       console.error('Google Sign-In error:', error.message);
     }
@@ -49,7 +49,7 @@ export default function AuthForm({ isSignUp = false }) {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log('GitHub Sign-In successful:', result.user);
-      router.push('/form');
+      router.push('/path');
     } catch (error) {
       console.error('GitHub Sign-In error:', error.message);
     }
