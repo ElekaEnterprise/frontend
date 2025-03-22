@@ -2,11 +2,7 @@ import formidable from 'formidable';
 import fs from 'fs/promises'; // Use promise-based fs
 import pdfParse from 'pdf-parse';
 
-export const config = {
-  api: {
-    bodyParser: false, // Disable default body parsing
-  },
-};
+export const dynamic = "force-dynamic"; // Ensure dynamic API execution
 
 // Function to parse the uploaded PDF
 const parseCV = async (filePath) => {
@@ -14,7 +10,6 @@ const parseCV = async (filePath) => {
     const dataBuffer = await fs.readFile(filePath); // Use fs.promises
     const data = await pdfParse(dataBuffer);
 
-    // Extracting dummy data (modify this as needed)
     return {
       name: 'Extracted Name', // Replace with actual parsing logic
       email: 'Extracted Email', // Replace with actual parsing logic
@@ -28,33 +23,32 @@ const parseCV = async (filePath) => {
 };
 
 // API handler
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).end(); // Method Not Allowed
-  }
-
+export async function POST(req) {
   const form = new formidable.IncomingForm({
     keepExtensions: true, // Save file extensions
     maxFileSize: 5 * 1024 * 1024, // 5MB limit
   });
 
-  form.parse(req, async (err, fields, files) => {
-    if (err) {
-      console.error("File upload error:", err);
-      return res.status(500).json({ error: 'File upload failed' });
-    }
+  return new Promise((resolve) => {
+    form.parse(req, async (err, fields, files) => {
+      if (err) {
+        console.error("File upload error:", err);
+        resolve(Response.json({ error: "File upload failed" }, { status: 500 }));
+        return;
+      }
 
-    const filePath = files.file?.filepath; // Ensure file exists
+      const filePath = files.file?.filepath; // Ensure file exists
+      if (!filePath) {
+        resolve(Response.json({ error: "No file uploaded" }, { status: 400 }));
+        return;
+      }
 
-    if (!filePath) {
-      return res.status(400).json({ error: "No file uploaded" });
-    }
-
-    try {
-      const parsedData = await parseCV(filePath);
-      res.status(200).json(parsedData);
-    } catch (error) {
-      res.status(500).json({ error: error.message || "Parsing failed" });
-    }
+      try {
+        const parsedData = await parseCV(filePath);
+        resolve(Response.json(parsedData, { status: 200 }));
+      } catch (error) {
+        resolve(Response.json({ error: error.message || "Parsing failed" }, { status: 500 }));
+      }
+    });
   });
 }
