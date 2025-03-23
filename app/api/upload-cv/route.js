@@ -2,8 +2,13 @@ import formidable from 'formidable';
 import fs from 'fs/promises';
 import pdfParse from 'pdf-parse';
 import path from 'path';
+import { promisify } from 'util';
 
-export const dynamic = "force-dynamic"; // Ensure dynamic API execution
+export const config = {
+  api: {
+    bodyParser: false, // Disable Next.js default body parsing
+  },
+};
 
 // Function to parse the uploaded PDF
 const parseCV = async (filePath) => {
@@ -15,7 +20,7 @@ const parseCV = async (filePath) => {
       name: 'Extracted Name', // Replace with actual parsing logic
       email: 'Extracted Email', // Replace with actual parsing logic
       experience: 'Extracted Experience', // Replace with actual parsing logic
-      rawText: data.text,
+      rawText: data.text, // Full text of the PDF
     };
   } catch (error) {
     console.error("Error parsing PDF:", error);
@@ -24,38 +29,33 @@ const parseCV = async (filePath) => {
 };
 
 // API handler
-export async function POST(req) {
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
   const form = new formidable.IncomingForm({
     keepExtensions: true,
     maxFileSize: 5 * 1024 * 1024, // 5MB limit
-    uploadDir: "/tmp", // Ensure files are stored in a writable directory
   });
 
-  return new Promise((resolve) => {
-    form.parse(req, async (err, fields, files) => {
-      if (err) {
-        console.error("File upload error:", err);
-        resolve(new Response(JSON.stringify({ error: "File upload failed" }), { status: 500 }));
-        return;
-      }
+  // Use util.promisify() to handle formidable async
+  const parseForm = promisify(form.parse);
 
-      const file = files.file;
-      if (!file || !file.filepath) {
-        resolve(new Response(JSON.stringify({ error: "No file uploaded" }), { status: 400 }));
-        return;
-      }
+  try {
+    const { files } = await parseForm(req);
+    if (!files.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
 
-      try {
-        // Move file to /tmp if needed
-        const tempFilePath = path.join("/tmp", path.basename(file.filepath));
-        await fs.rename(file.filepath, tempFilePath);
+    // Move the file to `/tmp/` for safe access
+    const tempFilePath = path.join('/tmp', files.file.newFilename || 'uploaded.pdf');
+    await fs.rename(files.file.filepath, tempFilePath);
 
-        // Parse the PDF
-        const parsedData = await parseCV(tempFilePath);
-        resolve(new Response(JSON.stringify(parsedData), { status: 200, headers: { "Content-Type": "application/json" } }));
-      } catch (error) {
-        resolve(new Response(JSON.stringify({ error: error.message || "Parsing failed" }), { status: 500 }));
-      }
-    });
-  });
+    const parsedData = await parseCV(tempFilePath);
+    res.status(200).json(parsedData);
+  } catch (error) {
+    console.error("Upload/Parsing Error:", error);
+    res.status(500).json({ error: error.message || "Internal Server Error" });
+  }
 }
