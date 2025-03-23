@@ -6,7 +6,7 @@ import { promisify } from 'util';
 
 export const config = {
   api: {
-    bodyParser: false, // Disable Next.js default body parsing
+    bodyParser: false, // Disable body parsing since we're handling file uploads
   },
 };
 
@@ -39,20 +39,21 @@ export default async function handler(req, res) {
     maxFileSize: 5 * 1024 * 1024, // 5MB limit
   });
 
-  // Use util.promisify() to handle formidable async
   const parseForm = promisify(form.parse);
 
   try {
     const { files } = await parseForm(req);
+    
     if (!files.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    // Move the file to `/tmp/` for safe access
+    // Move file to `/tmp/` for access on Vercel
     const tempFilePath = path.join('/tmp', files.file.newFilename || 'uploaded.pdf');
     await fs.rename(files.file.filepath, tempFilePath);
 
     const parsedData = await parseCV(tempFilePath);
+    
     res.status(200).json(parsedData);
   } catch (error) {
     console.error("Upload/Parsing Error:", error);
